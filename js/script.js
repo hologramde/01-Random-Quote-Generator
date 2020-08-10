@@ -75,7 +75,7 @@ const quotes = [
 
 /***
  * `getRandomQuote` function
- * Generate a random number and use that to return an object from the `quotes` array.
+ * Generate a random number and use that to select an object from the `quotes` array.
 ***/
 
 let randomQuote;
@@ -95,9 +95,9 @@ function getRandomQuote() {
 
 function changeBackgroundColor() {
         
-    let red =  Math.floor( Math.random() * 255 );
-    let green =  Math.floor( Math.random() * 255 );
-    let blue =  Math.floor( Math.random() * 255 );
+    let red =  Math.floor( Math.random() * 256 );
+    let green =  Math.floor( Math.random() * 256 );
+    let blue =  Math.floor( Math.random() * 256 );
 
     let color = `rgb( ${red}, ${green}, ${blue} )`;
 
@@ -122,17 +122,17 @@ function printQuote() {
     <p class="source">${randomQuote.source}`;
 
     // If `citation` is present, add it to the string
-    if ( randomQuote.citation !== "" ) {
+    if ( randomQuote.citation ) {
       html += `<span class="citation">${randomQuote.citation}</span>`;
     } 
 
     // If `year` is present, add it to the string
-    if ( randomQuote.year !== "" ) {
+    if ( randomQuote.year ) {
       html += `<span class="year">${randomQuote.year}</span>`;
     }
 
     // If `tag` is present, add to the string
-    if ( randomQuote.tags !== "" ) {
+    if ( randomQuote.tags ) {
       html += `<p>Tags: ${randomQuote.tags.join(", ")}</p>`;
 
     }
