@@ -70,27 +70,6 @@ const quotes = [
     citation: "",
     year: "551–479 BC",
     tags: [ "Wisdom", "Compassion", "Purpose" ]
-  },
-  {
-    quote: "In the end, it's not the years in your life that count. It's the life in your years.",
-    source: "Abraham Lincoln",
-    citation: "",
-    year: "1809–1965",
-    tags: [ "Wisdom", "Life", "Purpose" ]
-  },
-  {
-    quote: "Hard work beats talent when talent doesn't work hard.",
-    source: "Tim Notke",
-    citation: "",
-    year: "",
-    tags: [ "Work", "Persistence" ]
-  },
-  {
-    quote: "Work hard, be kind, and amazing things will happen.",
-    source: "Conan O'Brien",
-    citation: "",
-    year: "",
-    tags: [ "Work", "Persistence" ]
   }
 ];
 
@@ -99,23 +78,15 @@ const quotes = [
  * Generate a random number and use that to return an object from the `quotes` array.
 ***/
 
-let quote = "";
-let source = "";
-let citation = "";
-let year = "";
-let tags = "";
-
+let randomQuote;
 
 function getRandomQuote() {
 
     let i = Math.floor( Math.random() * quotes.length );
 
-    quote = quotes[i].quote;
-    source = quotes[i].source;
-    citation = quotes[i].citation;
-    year = quotes[i].year;
-    tags = quotes[i].tags.join(", ");
+    randomQuote = quotes[i];
 
+    return randomQuote;
 }
 
 /***
@@ -123,7 +94,7 @@ function getRandomQuote() {
 ***/
 
 function changeBackgroundColor() {
-
+        
     let red =  Math.floor( Math.random() * 255 );
     let green =  Math.floor( Math.random() * 255 );
     let blue =  Math.floor( Math.random() * 255 );
@@ -147,22 +118,22 @@ function printQuote() {
     getRandomQuote();
 
     // Create the string      
-    let html = `<p class="quote">${quote}</p>
-    <p class="source">${source}`;
+    let html = `<p class="quote">${randomQuote.quote}</p>
+    <p class="source">${randomQuote.source}`;
 
     // If `citation` is present, add it to the string
-    if ( citation !== "" ) {
-      html += `<span class="citation">${citation}</span>`;
+    if ( randomQuote.citation !== "" ) {
+      html += `<span class="citation">${randomQuote.citation}</span>`;
     } 
 
     // If `year` is present, add it to the string
-    if ( year !== "" ) {
-      html += `<span class="year">${year}</span>`;
+    if ( randomQuote.year !== "" ) {
+      html += `<span class="year">${randomQuote.year}</span>`;
     }
 
     // If `tag` is present, add to the string
-    if ( tags !== "" ) {
-      html += `<p>Tags: ${tags}</p>`;
+    if ( randomQuote.tags !== "" ) {
+      html += `<p>Tags: ${randomQuote.tags.join(", ")}</p>`;
 
     }
 
